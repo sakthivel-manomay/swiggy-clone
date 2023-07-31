@@ -1,0 +1,60 @@
+.top-res{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 0rem 12rem;
+}
+
+.card-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-cont {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+
+  .res-img {
+    margin: 0 1.5rem;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .scroll-buttons {
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .image-grid::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .image-grid {
+    scrollbar-width: none;
+  }
+
+.car-img:first-child{
+    margin: 0 0rem;
+    margin-right: 1.5rem;
+    border-radius: 20px;
+    height:15rem;
+}
+
+.arrow{
+    background-color: rgb(226, 226, 231);
+    border: none;
+    border-radius: 50%;
+    scale: 1;
+    height: 2rem;
+    width: 2rem;
+    margin-left: 1rem;
+}
