@@ -21,11 +21,11 @@ const Home = () => {
   useEffect(() => {
       if (state && Array.isArray(state.cards) && state.cards.length > 0) {
           // Offer carousel images
-          const getOfferCarousel = state.cards[0].card.card.imageGridCards.info;
+          const getOfferCarousel = state.cards[0].card.card.imageGridCards?.info;
           setOfferCarousel(getOfferCarousel);
-          const getRecipeCarousel = state.cards[1].card.card.imageGridCards.info;
+          const getRecipeCarousel = state.cards[0].card.card.imageGridCards?.info;
           setRecipeCarousel(getRecipeCarousel);
-          const getTopResCarousel = state.cards[2].card.card;
+          const getTopResCarousel = state.cards[1].card.card;
           setTopResCarousel(getTopResCarousel);
           console.log(topResCarousel);
       }
@@ -44,15 +44,17 @@ const Home = () => {
 
     return ( 
         <div className='home'>
-            <div className='home-offers'>
+            {/* <div className='home-offers'>
             <Offers  offersData={offerCarousel} />
-            </div>
+            </div> */}
             <div className='home-recipes'>
               <Recipes recipesData={recipeCarousel}></Recipes>
             </div>
+            <hr />
             <div className="home-topRes">
               <TopRestaurant topResData={topResCarousel}></TopRestaurant>
             </div>
+            <hr />
         </div>
      );
 }

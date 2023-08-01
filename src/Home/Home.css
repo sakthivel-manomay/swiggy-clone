@@ -9,3 +9,8 @@
 .home-recipes{
     margin-top: 2rem;
 }
+
+hr{
+    margin: 1.5rem 13rem;
+    opacity: 0.5;
+}
