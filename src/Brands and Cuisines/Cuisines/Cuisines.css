@@ -36,3 +36,22 @@
     grid-gap: 18px;
     justify-content:space-between
 }
+
+.show-btn{
+    background-color: transparent;
+    font-size: 14px;
+    border: none;
+    color:rgba(2, 6, 12, 0.75);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sm-down{
+    margin-left: 0.5rem;
+
+}
+
+.sm-up{
+    margin-left: 0.5rem;
+    transform: rotate(90deg);
+}
