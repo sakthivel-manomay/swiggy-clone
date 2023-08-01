@@ -12,7 +12,7 @@
 
 .restlist-image-cont {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     align-items: center;
   }
@@ -31,7 +31,7 @@
     position: relative;
     background-color: #333;
     height: 11rem;
-    width: 17rem;
+    width: 15rem;
     margin-right: 3rem;
     border-radius: 16px;
   }
@@ -75,11 +75,12 @@
     color: rgba(2, 6, 12, 0.75);
     overflow: hidden;
     width: 100%;
-    display: -webkit-box;
-    overflow-wrap: break-word;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+    
     margin-bottom: 0.5rem;
+    width: 15rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   
   .rate-cont{
@@ -98,7 +99,7 @@
     margin-top: 0.3rem;
     font-size: 12pt;
     opacity: 0.7;
-    width: 17rem;
+    width: 15rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -137,4 +138,31 @@
     height: 2rem;
     width: 2rem;
     margin-left: 1rem;
+}
+
+.filter-but{
+    padding: 0.7rem 1.5rem;
+    background: transparent;
+    border-radius: 1.5rem;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    color:#999;
+}
+
+.filter-but-active{
+    padding: 0.7rem 1.5rem;
+    background: rgba(204,204,204,0.5);
+    border-radius: 1.5rem;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    color:#666;
+}
+
+.cancel-icon{
+    
+    margin-left: 0.5rem;
+}
+
+.filter-container{
+    margin-bottom: 2rem;
 }

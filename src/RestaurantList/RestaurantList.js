@@ -45,14 +45,15 @@ const RestaurantList = ({resListData ,resListTitle, resFilter}) => {
         </div> */}
 
         <div className="filter-container">
-            <button onClick={toggleFilter} className={filterActive ? 'filter-active' : ''}>
-            Delivery in 30 mins
+            <button onClick={toggleFilter} className={filterActive ? 'filter-but-active' : 'filter-but'}>
+            Fastest Delivery
+                {filterActive && (
+                <span className="cancel-icon" onClick={clearFilter}>
+                    &times;
+                </span>
+                )}
             </button>
-            {filterActive && (
-            <span className="cancel-icon" onClick={clearFilter}>
-                &times;
-            </span>
-            )}
+            
         </div>
 
         <div className='restlist-image-cont'>
