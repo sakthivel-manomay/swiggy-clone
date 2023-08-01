@@ -1,11 +1,20 @@
 import './RestaurantList.css'
+import { useState } from 'react';
 
 const RestaurantList = ({resListData ,resListTitle, resFilter}) => {
     const resList = resListData?.gridElements?.infoWithStyle.restaurants || [];
     const filterList = resFilter?.facetList || [];
 
     const imageUrl = 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/'
+    const [filterActive, setFilterActive] = useState(false);
+    
+    const toggleFilter = () => {
+        setFilterActive(!filterActive);
+    };
 
+    const clearFilter = () => {
+        setFilterActive(false);
+    };
 
     if (!resListData) {
         // Render a loading state while data is being fetched
@@ -17,12 +26,16 @@ const RestaurantList = ({resListData ,resListTitle, resFilter}) => {
         return <div>Error: {resListData.error.message}</div>;
       } 
 
+    const filteredResList = filterActive
+    ? resList.filter((item) => item.info.sla?.deliveryTime < 20)
+    : resList;
+
     return ( 
         <div className='rest-list'>
         <div className="card-header">
             <h2>{resListTitle}</h2>
         </div>
-        
+
         {/* <div>
             {filterList.map((facet) => (
                 <div key={facet.id}>
@@ -31,8 +44,19 @@ const RestaurantList = ({resListData ,resListTitle, resFilter}) => {
             ))}
         </div> */}
 
+        <div className="filter-container">
+            <button onClick={toggleFilter} className={filterActive ? 'filter-active' : ''}>
+            Delivery in 30 mins
+            </button>
+            {filterActive && (
+            <span className="cancel-icon" onClick={clearFilter}>
+                &times;
+            </span>
+            )}
+        </div>
+
         <div className='restlist-image-cont'>
-          {resList.map((item) => (
+          {filteredResList.map((item) => (
             <a key={item.info.id} href={item.cta.link}>
               <div class='rl-single-img-cont'>
                 <img className='restlist-img' src={`${imageUrl}${item.info.cloudinaryImageId}`} alt={item.info.name} />
