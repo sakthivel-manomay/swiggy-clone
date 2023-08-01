@@ -5,6 +5,7 @@ import Offers from '../Offers/Offers';
 import './Home.css'
 import Recipes from '../Recipes/Recipes';
 import TopRestaurant from '../TopRestaurant/TopRestaurant';
+import RestaurantList from '../RestaurantList/RestaurantList';
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -12,6 +13,9 @@ const Home = () => {
     const [offerCarousel, setOfferCarousel] = useState([]);
     const [recipeCarousel, setRecipeCarousel] = useState([]);
     const [topResCarousel, setTopResCarousel] = useState([]);
+    const [gridTitle, setGridTitle] = useState([]);
+    const [filterQuery, setFilterQuery] = useState([]);
+    const [resList, setResList] = useState([]);
     console.log('state',state);
     
     useEffect(() => {
@@ -23,11 +27,17 @@ const Home = () => {
           // Offer carousel images
           const getOfferCarousel = state.cards[0].card.card.imageGridCards?.info;
           setOfferCarousel(getOfferCarousel);
-          const getRecipeCarousel = state.cards[0].card.card.imageGridCards?.info;
+          const getRecipeCarousel = state.cards[1].card.card.imageGridCards?.info;
           setRecipeCarousel(getRecipeCarousel);
-          const getTopResCarousel = state.cards[1].card.card;
+          const getTopResCarousel = state.cards[2].card.card;
           setTopResCarousel(getTopResCarousel);
-          console.log(topResCarousel);
+          const getGridTitle = state.cards[3].card.card.title;
+          setGridTitle(getGridTitle);
+          const getFilterQuery = state.cards[4].card.card;
+          setFilterQuery(getFilterQuery);
+          console.log(getFilterQuery);
+          const getResList = state.cards[5].card.card;
+          setResList(getResList);
       }
   }, [state]);
 
@@ -44,9 +54,9 @@ const Home = () => {
 
     return ( 
         <div className='home'>
-            {/* <div className='home-offers'>
+            <div className='home-offers'>
             <Offers  offersData={offerCarousel} />
-            </div> */}
+            </div>
             <div className='home-recipes'>
               <Recipes recipesData={recipeCarousel}></Recipes>
             </div>
@@ -55,6 +65,10 @@ const Home = () => {
               <TopRestaurant topResData={topResCarousel}></TopRestaurant>
             </div>
             <hr />
+            <div className="res-list">
+              <RestaurantList resListData={resList} resListTitle={gridTitle} resFilter={filterQuery}></RestaurantList>
+            </div>
+            
         </div>
      );
 }

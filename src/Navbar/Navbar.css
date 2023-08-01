@@ -2,8 +2,20 @@
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
+    width: 100%;
+    transition: transform 0.2s ease;
   }
   
+.navbar.fixed{
+  background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    top:0;
+    z-index: 99;
+}
+
   .container {
     display: flex;
     align-items: center;
@@ -39,4 +51,3 @@
   .nav-links li a:hover {
     color: #333333;
   }
-  
