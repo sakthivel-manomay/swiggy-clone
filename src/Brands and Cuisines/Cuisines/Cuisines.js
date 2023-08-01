@@ -31,7 +31,7 @@ const Cuisines = ({ cuisineData }) => {
   
     return (
       <div className='cuisines'>
-        <h2>Cuisines</h2>
+        <h2>Best Cuisines Near me</h2>
         <div ref={containerRef} className="cuisines-grid">
           {cuisineData?.slice(0, displayedCuisines).map((cuisine, index) => (
             <div className="single-cuisine">

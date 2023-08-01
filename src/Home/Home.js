@@ -27,7 +27,7 @@ const Home = () => {
   }, [dispatch]);
 
   useEffect(() => {
-      if (state && Array.isArray(state.cards) && state.cards.length > 0) {
+      if (state && Array.isArray(state.cards) && state.cards?.length > 0) {
           // Offer carousel images
           const getOfferCarousel = state.cards[0].card.card.imageGridCards?.info;
           setOfferCarousel(getOfferCarousel);
